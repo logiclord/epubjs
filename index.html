@@ -71,6 +71,13 @@
         height: 5px;
         width:0;
       }
+      #info p {
+        margin:o;
+        text-align:center;
+        color:gray;
+        font-size:small;
+        margin:0;padding:0;
+      }
     </style>
     <script src="http://www.google.com/jsapi"></script>
     <script type="text/javascript">
@@ -339,7 +346,11 @@
       <div id="total-size"><div id="remaining"></div></div>
       <div id="content"></div>
     </div>
-    <p style="margin:auto;font-size:smaller;text-align:center;color:gray">Usage: 'right-arrow' for next page, 'left-arrow' for previous page, 'down-arrow' for next chapter, 'up-arrow' for previous chapter</p>
-    <p style="margin:auto;font-size:smaller;text-align:center;color:gray">Current support: Firefox, Safari. As of February 17, 2009</p> 
+    <div id="info">
+    <p>Usage: 'right-arrow' for next page, 'left-arrow' for previous page, 'down-arrow' for next chapter, 'up-arrow' for previous chapter</p>
+    <p>Current support: Firefox, Safari. As of February 17, 2009.</p> 
+    <p>Available from <a href="http://code.google.com/p/epub-tools/source/browse/#svn/trunk/epubtools/epubjs">Google Code</a></p> 
+    </div>
+
   </body>
 </html>
