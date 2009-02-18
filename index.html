@@ -330,16 +330,16 @@
          $('#toc a').live('click', load_content);
          $(document).bind('keydown', function(e) {
            var code = (e.keyCode ? e.keyCode : e.which);
-           if (code == 39 || code == 78 ) {  // right or 'n'
+           if ( code == 78 ) {  //  'n'
              next();
            }
-           if (code == 37 || code == 80) {  // left or 'p'
+           if ( code == 80) {  // 'p'
              previous();
            }
-           if (code == 40 || code == 74) { // down  or 'j'
+           if ( code == 74) { //  'j'
              next_chapter();
            }
-           if (code == 38 || code == 75 ) { // up or 'k'
+           if ( code == 75 ) { //  'k'
              previous_chapter();
            }
          });
@@ -353,8 +353,8 @@
       <div id="content"></div>
     </div>
     <div id="info">
-    <p>Usage: 'right-arrow' for next page, 'left-arrow' for previous page, 'down-arrow' for next chapter, 'up-arrow' for previous chapter</p>
-    <p>Current support: Firefox, Safari. As of February 17, 2009.</p> 
+    <p>Usage: 'n' for next page, 'p' for previous page, 'j' for next chapter, 'k' for previous chapter</p>
+    <p>Current support: Firefox, Safari. As of February 18, 2009.</p> 
     <p>Available from <a href="http://code.google.com/p/epub-tools/source/browse/#svn/trunk/epubtools/epubjs">Google Code</a></p> 
     </div>
 
