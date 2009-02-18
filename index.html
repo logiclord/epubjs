@@ -301,8 +301,14 @@
       /* Open the OPF file and read some useful metadata from it */
       function opf(f) {
          // Get the document title
-         $('#content-title').html($(f).find('dc\\:title').text() + ' by ' +  $(f).find('dc\\:creator').text());
-
+         // Depending on the browser, namespaces may or may not be handled here
+         var title = $(f).find('title').text();  // Safari
+         var author = $(f).find('creator').text();  
+         $('#content-title').html(title + ' by ' + author);
+	 // Firefox
+         if (title == null || title == '') {
+	    $('#content-title').html($(f).find('dc\\:title').text() + ' by ' +  $(f).find('dc\\:creator').text());
+         }
          // Get the NCX
          $(f).find('opf\\:item').each(function() {
            // Cheat and find the first file ending in NCX
