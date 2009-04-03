@@ -63,6 +63,7 @@
         width: 500px;
         height: 5px;
         margin-left: 200px;
+	margin-top: 1em;  margin-bottom: 1em;
         border: 1px solid rgb(200,200,200);
         clear:right;
       }
@@ -216,7 +217,7 @@
       }
 
       function next() {
-        top = page_stack[page_stack.length-1].bottom;
+        var top = page_stack[page_stack.length-1].bottom;
         if (top) {
           top.prevAll('p').hide();
           top.hide();
