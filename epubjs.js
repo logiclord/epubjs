@@ -1,8 +1,7 @@
 var page_stack = new Array();
-var epub_dir = 'epub';
 var oebps_dir = '';
-var opf_file = null;
-var ncx_file = null;
+var opf_file = '';
+var ncx_file = '';
 var abs_container_bottom = null;
 
 function process_content() {
@@ -198,6 +197,8 @@ function container(f) {
         oebps_dir = opf_file.substr(0, opf_file.lastIndexOf('/'));
     }
     opf_file = epub_dir + '/' + opf_file;
+    console.log('Got opf file as ' + opf_file);                             
+    jQuery.get(opf_file, {}, opf);
 }
 
 /* Open the TOC, get the first item and open it */
@@ -205,13 +206,14 @@ function toc(f) {
     
     $(f).find('navPoint').each(function() { 
             var s = $('<span/>').text($(this).find('text').text());
-            var a = $('<a/>').attr('href', $(this).find('content').attr('src'));
+            var a = $('<a/>').attr('href', epub_dir + '/' + oebps_dir + '/' + $(this).find('content').attr('src'));
             s.appendTo(a);
             a.appendTo($('<li/>').appendTo('#toc'));
         });
     
     // Click on the desired first item link 
     $('#toc a:eq(1)').click();
+
 }
 /* Open the OPF file and read some useful metadata from it */
 function opf(f) {
@@ -228,8 +230,9 @@ function opf(f) {
     $(f).find('opf\\:item').each(function() {
             // Cheat and find the first file ending in NCX
             if ( $(this).attr('href').indexOf('.ncx') != -1) {
-                ncx_file = epub_dir + '/' + oebps_dir + $(this).attr('href');
-                return;
+                ncx_file = epub_dir + '/' + oebps_dir + '/' + $(this).attr('href');
+                console.log('Got ncx file as ' + ncx_file);
+                jQuery.get(ncx_file, {}, toc);
             }
         });
     
@@ -237,12 +240,6 @@ function opf(f) {
 jQuery(document).ready(function() {
         
         jQuery.get(epub_dir + '/META-INF/container.xml', {}, container);
-//         jQuery.get(opf_file, {}, opf);
-//         jQuery.get(toc_file, {}, toc);
-         jQuery.get('content.opf', {}, opf);
-         jQuery.get('toc.ncx', {}, toc);
-
-
          $('#toc a').live('click', load_content);
          $(document).bind('keydown', function(e) {
            var code = (e.keyCode ? e.keyCode : e.which);
