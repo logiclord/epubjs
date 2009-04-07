@@ -9,7 +9,6 @@ function process_content() {
     
     // This won't be accurate until the content is first loaded
     abs_container_bottom = $('#book').height() + $('#book').offset().top;
-    console.log(abs_container_bottom);
     
     var target_height = null;
     var para_offset = null;
@@ -196,7 +195,6 @@ function container(f) {
         oebps_dir = opf_file.substr(0, opf_file.lastIndexOf('/'));
     }
     opf_file = epub_dir + '/' + opf_file;
-    console.log('Got opf file as ' + opf_file);                             
     jQuery.get(opf_file, {}, opf);
 }
 
@@ -239,7 +237,6 @@ function opf(f) {
             // Cheat and find the first file ending in NCX
             if ( $(this).attr('href').indexOf('.ncx') != -1) {
                 ncx_file = epub_dir + '/' + oebps_dir + '/' + $(this).attr('href');
-                console.log('Got ncx file as ' + ncx_file);
                 jQuery.get(ncx_file, {}, toc);
             }
         });
@@ -257,6 +254,14 @@ jQuery(document).ready(function() {
 
          }});
 
+         $('html').mousewheel(function(event, delta) {
+            if (delta > 0) // up
+               previous();
+            else if (delta < 0) // down
+               next();
+            return false; // prevent default
+         });
+        
          $(document).bind('keydown', function(e) {
            var code = (e.keyCode ? e.keyCode : e.which);
            if ( code == 78 ) {  //  'n'
