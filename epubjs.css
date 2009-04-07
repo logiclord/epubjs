@@ -48,8 +48,7 @@
         border-left: 2px solid rgb(210,210,210);
       }
       #content-title {
-        float:right;
-        width:600px;      
+
       }
       a.selected {
          font-weight: bold;

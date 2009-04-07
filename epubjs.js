@@ -7,10 +7,9 @@ var abs_container_bottom = null;
 function process_content() {
     $('#content p').css('color','white');
     
-    if (abs_container_bottom == null) {    
-        // This won't be accurate until the content is first loaded
-        abs_container_bottom = $('#book').height() + $('#book').offset().top;
-    }
+    // This won't be accurate until the content is first loaded
+    abs_container_bottom = $('#book').height() + $('#book').offset().top;
+    console.log(abs_container_bottom);
     
     var target_height = null;
     var para_offset = null;
@@ -248,8 +247,16 @@ function opf(f) {
 }
 jQuery(document).ready(function() {
         
-        jQuery.get(epub_dir + '/META-INF/container.xml', {}, container);
+         jQuery.get(epub_dir + '/META-INF/container.xml', {}, container);
          $('#toc a').live('click', load_content);
+
+         $('#book').resizable( { alsoResize: '#content',
+                                 stop: function() {
+            $('#content p').show();
+            process_content();
+
+         }});
+
          $(document).bind('keydown', function(e) {
            var code = (e.keyCode ? e.keyCode : e.which);
            if ( code == 78 ) {  //  'n'
