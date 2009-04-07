@@ -215,7 +215,7 @@ function toc(f) {
         });
     
     // Click on the desired first item link 
-    $('#toc a:eq(1)').click();
+    $('#toc a:eq(0)').click();
 
 }
 /* Open the OPF file and read some useful metadata from it */
