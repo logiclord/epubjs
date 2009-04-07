@@ -150,6 +150,9 @@ function previous() {
        and had it in the stack.
     */
     var status = page_stack.pop();
+    if (status == null) {
+       return process_content();
+    }
     if (status.top.prev('p').length == 0) {
         return previous_chapter();
     }
