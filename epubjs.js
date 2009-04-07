@@ -205,8 +205,12 @@ function container(f) {
 function toc(f) {
     
     $(f).find('navPoint').each(function() { 
-            var s = $('<span/>').text($(this).find('text').text());
+            var s = $('<span/>').text($(this).find('text:first').text());
             var a = $('<a/>').attr('href', epub_dir + '/' + oebps_dir + '/' + $(this).find('content').attr('src'));
+            // If 's' has a parent navPoint, indent it
+            if ($(this).parent()[0].tagName.toLowerCase() == 'navpoint') {
+              s.addClass('indent');
+            }    
             s.appendTo(a);
             a.appendTo($('<li/>').appendTo('#toc'));
         });
@@ -226,8 +230,13 @@ function opf(f) {
     if (title == null || title == '') {
         $('#content-title').html($(f).find('dc\\:title').text() + ' by ' +  $(f).find('dc\\:creator').text());
     }
-    // Get the NCX
-    $(f).find('opf\\:item').each(function() {
+    // Get the NCX 
+    var opf_item_tag = 'opf\\:item';
+    if ($(f).find('opf\\:item').length == 0) {
+       opf_item_tag = 'item';
+    }
+
+    $(f).find(opf_item_tag).each(function() {
             // Cheat and find the first file ending in NCX
             if ( $(this).attr('href').indexOf('.ncx') != -1) {
                 ncx_file = epub_dir + '/' + oebps_dir + '/' + $(this).attr('href');
