@@ -57,7 +57,11 @@ function process_content() {
             while (index > 0 && t.charAt(index) != ' ') {
                 index--;
             }
-            text_overflow.push(t.substr(index + 1, t.length - 1));
+            if (index != 0) {
+                text_overflow.push(t.substr(index + 1, t.length - 1));
+            } else {
+                text_overflow.push(t.substr(index, t.length));
+            }
             obscured_para.text(t.substr(0, index));
             if (index == 0) {
                 break;
