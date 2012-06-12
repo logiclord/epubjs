@@ -9,12 +9,12 @@
         "text/html; charset=us-ascii" />
         <meta name="viewport" content=
         "width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="css/epubjs.css" type=
-        "text/css" />
         <link type="text/css" href="css/bootstrap.min.css" rel=
         "stylesheet" />
         <link type="text/css" href=
         "css/bootstrap-responsive.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/epubjs.css" type=
+        "text/css" />
         <script type="text/javascript">
         //<![CDATA[
             var epub_dir = 'emma-jane_austen';
@@ -25,54 +25,43 @@
     </head>
     <body>
 
-        <!-- Controls -->
-        <div class="navbar navbar-fixed-bottom">
-            <div class="navbar-inner">
-                <div class="container-fluid">
-                    <ul class="nav">
-                        <li>
-                            <span id="prev-btn" class="btn link">
-                                <i class="icon-arrow-left"></i>
-                            </span>
-                        </li>
-                        <li>
-                            <span id="next-btn" class="btn link">
-                                <i class="icon-arrow-right"></i>
-                            </span>
-                        </li>
-                        <li>
-                            <span id="toc-btn" class="btn link">
-                                <i class="icon-book"></i>
-                            </span>
-                        </li>  
-                    </ul>
+        <div class="navbar navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="container-fluid">
+                <div id="total-size">
+                    <div id="remaining" class="bar"></div>
                 </div>
+                <span id="prev-btn" class="btn link">
+                    <i class="icon-arrow-left"></i>
+                </span>
+                <span id="next-btn" class="btn link">
+                    <i class="icon-arrow-right"></i>
+                </span>
+                <span id="toc-btn" class="btn link">
+                    <i class="icon-book"></i>
+                </span>
             </div>
+          </div>
         </div>
-        <!-- /Controls -->
+
 
         <!-- Reading -->
-        <div id="book" class="container-fluid">
+        <div  class="container-fluid">
             <div class="row-fluid">
-                <div id="page-container" class="span12">
-                    <div>
+                <div class="span12">
+                    <div id="book">
                         <h1 id="content-title"></h1>
+                        <div id="content"></div>
+                        <!-- TOC -->
+                        <div id="toc-page">
+                            <ul id="toc"></ul>
+                        </div>
+                        <!-- /TOC -->
                     </div>
-                    <div id="total-size" class="progress progress-success">
-                        <div id="remaining" class="bar"></div>
-                    </div>
-                    <div id="content"></div>
                 </div>
             </div>
         </div>
         <!-- /Reading -->
-
-        <!-- TOC -->
-        <div id="toc-page">
-            <ul id="toc"></ul>
-        </div>
-        <!-- /TOC -->
-
 
         <!-- Scripts -->
         <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>

@@ -293,21 +293,25 @@ jQuery(document).ready(function() {
             previous_chapter();
         }
     });
-
+    
     $("#toc-btn").click(function() {
-        $("#book").toggle();
+        $("#content").toggle();
         $("#toc-page").toggle();
         $("#toc a").click(function() {
-            $("#toc-page").toggle();
-            $("#book").toggle();
+            $("#toc-page").hide();
+            $("#content").show();
         });
     });
 
     $("#next-btn").click(function() {
+        $("#toc-page").hide();
+        $("#content").show();
         next();
     });
 
     $("#prev-btn").click(function() {
+        $("#toc-page").hide();
+        $("#content").show();
         previous();
     });
 

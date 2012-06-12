@@ -11,11 +11,8 @@
 
 body {
   font-family: georgia;
-  line-height: 1.5em;
+  line-height: 2em;
   background-color: rgb(245,245,245);
-}
-
-body { 
   font-family: serif; 
 }
 
@@ -24,8 +21,9 @@ a:visited, a:link {
   text-decoration:none;
 }
 
-h1 {
-  line-height: 1em;
+
+h1,  h2, h3 { 
+  font-family: sans-serif; 
 }
 
 a.selected {
@@ -37,13 +35,62 @@ a.selected {
   padding-left: 1em;
 }
 
+
+/* -----------------------------------------
+   Controls
+----------------------------------------- */
+
+.navbar-fixed-top {
+}
+
+.navbar-fixed-top .navbar-inner {
+  background: #FFF;
+  box-shadow: inherit;
+  border-bottom: 1px solid #CCC;
+}
+
+/* -----------------------------------------
+   Reading Experience
+----------------------------------------- */
+
+
+#book {
+  height: 600px;
+  overflow:hidden;
+  background-color:white;
+  border: 1px dotted #CCC;
+  font-size: large;
+  margin: 60px auto 20px;
+  padding: 1em;
+}
+
+#content-title {
+  margin: 0em 0em 1em;
+}
+
+#content {
+}
+
+#content h2 {
+  margin-bottom: 1em;
+}
+
+
+body #content p { 
+  font-family: serif;
+}
+
+
+
 /* -----------------------------------------
    Reading Progress Bar
 ----------------------------------------- */
-
 #total-size {
+  display: none;
+  float: right;
   height: 10px;
-  margin-top: 1em;  
+  width: 100px;
+  margin-top: 0.5em;
   margin-bottom: 1em;
   border: 1px solid rgb(200,200,200);
   clear:right;
@@ -54,46 +101,13 @@ a.selected {
   width:0;
 }
 
-
-/* -----------------------------------------
-   Reading Experience
------------------------------------------ */
-
-
-#book { 
-  height: 600px;
-  overflow:hidden;
-  background-color:white;
-  border: 1px dotted #CCC;
-}
-
-#content-title {
-  margin-top: 1em;
-}
-
-#content {
-  padding-right: 1em;
-  padding-left: 1em;
-}
-
-#content p { 
-  line-spacing: 1.2 em 
-}
-
-#content h1, #content h2, #content h3 { 
-  font-family: sans-serif; 
-}
-
-#content h1.part, #content h2.subtitle { 
-  text-align: center; margin:auto;
-}
-
-
 /* -----------------------------------------
    Table of Contents
 ----------------------------------------- */
 #toc-page {
   display: none;
+  font-size: small;
+  font-family: sans-serif;
 }
 
 #toc {
@@ -104,7 +118,18 @@ a.selected {
 #toc a {
   float: left;
   display: block;
-  padding: 1em;
-  margin: 1em;
+  width: 10em;
+  padding: 0.3em;
+  margin: 0.3em;
   border: 1px solid #CCC;
+}
+
+/* -----------------------------------------
+   Responsive Updates
+----------------------------------------- */
+
+@media (max-width: 979px) {
+  #book {
+    margin-top: 0px;
+  }
 }
