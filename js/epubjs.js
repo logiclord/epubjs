@@ -293,4 +293,23 @@ jQuery(document).ready(function() {
             previous_chapter();
         }
     });
+
+    $("#toc-btn").click(function() {
+        $("#book").toggle();
+        $("#toc-page").toggle();
+        $("#toc a").click(function() {
+            $("#toc-page").toggle();
+            $("#book").toggle();
+        });
+    });
+
+    $("#next-btn").click(function() {
+        next();
+    });
+
+    $("#prev-btn").click(function() {
+        previous();
+    });
+
+
 });

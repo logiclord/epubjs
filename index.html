@@ -1,68 +1,84 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-  <head>
-    <title>ePub js test</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/epubjs.css" ></link>
-    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet" />
-    <link type="text/css" href="css/bootstrap-responsive.min.css" rel="stylesheet" />
-    <script type="text/javascript">
-      var epub_dir = 'emma-jane_austen';
-//      var epub_dir = 'fielding-tom_jones';
-//        var epub_dir = 'book-sample';
-    </script>
+    <head>
+        <title>
+            ePub js test
+        </title>
+        <meta http-equiv="content-type" content=
+        "text/html; charset=us-ascii" />
+        <meta name="viewport" content=
+        "width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/epubjs.css" type=
+        "text/css" />
+        <link type="text/css" href="css/bootstrap.min.css" rel=
+        "stylesheet" />
+        <link type="text/css" href=
+        "css/bootstrap-responsive.min.css" rel="stylesheet" />
+        <script type="text/javascript">
+        //<![CDATA[
+            var epub_dir = 'emma-jane_austen';
+            //var epub_dir = 'fielding-tom_jones';
+            //var epub_dir = 'book-sample';
+        //]]>
+        </script>
+    </head>
+    <body>
 
-  </head>
-  <body>
-  
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </a>
+        <!-- Controls -->
+        <div class="navbar navbar-fixed-bottom">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <ul class="nav">
+                        <li>
+                            <span id="prev-btn" class="btn link">
+                                <i class="icon-arrow-left"></i>
+                            </span>
+                        </li>
+                        <li>
+                            <span id="next-btn" class="btn link">
+                                <i class="icon-arrow-right"></i>
+                            </span>
+                        </li>
+                        <li>
+                            <span id="toc-btn" class="btn link">
+                                <i class="icon-book"></i>
+                            </span>
+                        </li>  
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Controls -->
 
-            <div class="nav-collapse">
-              <ul class="nav">
-                 <li class="dropdown">
-                    <a href="#"
-                          class="dropdown-toggle"
-                          data-toggle="dropdown">
-                          <i class="icon-book icon-white"></i>
-                          <b class="caret"></b>
-                    </a>
-                    <!-- TOC -->
-                    <div id="toc-container" class="dropdown-menu">
-                      <div class="well">
-                        <ul id="toc" class="nav nav-list"></ul>
-                      </div>
+        <!-- Reading -->
+        <div id="book" class="container-fluid">
+            <div class="row-fluid">
+                <div id="page-container" class="span12">
+                    <div>
+                        <h1 id="content-title"></h1>
                     </div>
-                    <!-- /TOC -->
-                  </li>
-                </ul>
-              </div>
+                    <div id="total-size" class="progress progress-success">
+                        <div id="remaining" class="bar"></div>
+                    </div>
+                    <div id="content"></div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+        <!-- /Reading -->
 
-
-    <div id="book" class="container-fluid">
-      <div class="row-fluid">
-        <!-- Page -->
-        <div id="page-container" class="span12">
-          <div><h1 id="content-title"></h1></div>
-          <div id="total-size"><div id="remaining"></div></div>
-          <div id="content"></div>
+        <!-- TOC -->
+        <div id="toc-page">
+            <ul id="toc"></ul>
         </div>
-        <!-- /Page -->
+        <!-- /TOC -->
 
-    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script> 
-    <script type="text/javascript" src="js/mousewheel.js"></script> 
-    <script type="text/javascript" src="js/epubjs.js"></script>
 
-  </body>
-</html>  
+        <!-- Scripts -->
+        <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/mousewheel.js"></script>
+        <script type="text/javascript" src="js/epubjs.js"></script>
+        <!-- /Scripts -->
+    </body>
+</html>

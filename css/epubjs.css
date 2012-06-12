@@ -1,68 +1,79 @@
-      body {
-        font-family: georgia;
-        line-height: 1.5em;
-        background-color: rgb(245,245,245);
-        padding-top: 40px;
-      }
-      * html .clear { height: 1%; }
-      #book { 
-        height: 600px;
-        overflow:hidden;
-        background-color:white;
-        border: 1px dotted #CCC;
-      }
-      a:visited, a:link {
-        color: rgb(90,90,90);
-        text-decoration:none;
-      }
-      #toc-container {
-        font-size:x-small;
-      }
-      h1 {
-        line-height: 1em;
-      }
-      #toc {
-        list-style-type:none;
-        margin:0; 
-        padding:1em 1em 10em 1em;
-      }
-      #content {
-        padding-right: 1em;
-        padding-left: 1em;
-      }
-      #content-title {
+/*
+*
+* epubjs
+*
+*/
 
-      }
-      a.selected {
-         font-weight: bold;
-         color: black;
-         text-decoration: none;
-      }
-      #total-size {
-        height: 5px;
-        margin-top: 1em;  
-        margin-bottom: 1em;
-        border: 1px solid rgb(200,200,200);
-        clear:right;
-      }
-      #remaining {
-        background-color:rgb(200,200,200);
-        height: 5px;
-        width:0;
-      }
-      #info p {
-        margin:o;
-        text-align:center;
-        color:gray;
-        font-size:small;
-        margin:0;padding:0;
-      }
-.indent {
-  padding-left: 1em;
+
+/* -----------------------------------------
+   Shared Styles
+----------------------------------------- */
+
+body {
+  font-family: georgia;
+  line-height: 1.5em;
+  background-color: rgb(245,245,245);
 }
 
 body { 
   font-family: serif; 
+}
+
+a:visited, a:link {
+  color: rgb(90,90,90);
+  text-decoration:none;
+}
+
+h1 {
+  line-height: 1em;
+}
+
+a.selected {
+   font-weight: bold;
+   color: black;
+   text-decoration: none;
+}
+.indent {
+  padding-left: 1em;
+}
+
+/* -----------------------------------------
+   Reading Progress Bar
+----------------------------------------- */
+
+#total-size {
+  height: 10px;
+  margin-top: 1em;  
+  margin-bottom: 1em;
+  border: 1px solid rgb(200,200,200);
+  clear:right;
+}
+#remaining {
+  background-color:rgb(200,200,200);
+  height: 10px;
+  width:0;
+}
+
+
+/* -----------------------------------------
+   Reading Experience
+----------------------------------------- */
+
+
+#book { 
+  height: 600px;
+  overflow:hidden;
+  background-color:white;
+  border: 1px dotted #CCC;
+}
+
+#content-title {
+  margin-top: 1em;
+}
+
+#content {
+  padding-right: 1em;
+  padding-left: 1em;
 }
 
 #content p { 
@@ -77,3 +88,23 @@ body {
   text-align: center; margin:auto;
 }
 
+
+/* -----------------------------------------
+   Table of Contents
+----------------------------------------- */
+#toc-page {
+  display: none;
+}
+
+#toc {
+  list-style-type:none;
+  margin:0;
+}
+
+#toc a {
+  float: left;
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  border: 1px solid #CCC;
+}
