@@ -113,7 +113,7 @@ function process_content() {
     if (num_chars_invisible == num_chars_before) {
         percent = 1;
     }
-    var width = 500 * percent;
+    var width = $("#total-size").width() * percent;
     $('#remaining').css('width', width + 'px');
 }
 
@@ -126,7 +126,22 @@ function load_content() {
     // Unselect other sections
     $('.selected').attr('class', 'unselected');
     $(this).attr('class', 'selected');
-    $('#content').load(page, null, process_content);
+    $.get(page, function(data) {
+        
+        // normalize #document object to string if needed   
+        if (typeof(data) == "object") {
+           var data = ('<html>'+data.documentElement.innerHTML+'</html>');
+        }
+    
+        // make sure all links to in-book styles, js, and images
+        // are relative to the book itself, not the web directory
+        var path = epub_dir + '/OEBPS/';
+        var page = data.replace(/src="/g, 'src="' + path);
+        page = page.replace(/href="/g, 'href="' + path);
+        page  = page.replace(/%20/g, ".");
+        $('#content').html(page);
+        process_content();
+    });
     return false;
 }
 
@@ -254,15 +269,6 @@ jQuery(document).ready(function() {
 
     jQuery.get(epub_dir + '/META-INF/container.xml', {}, container);
     $('#toc a').live('click', load_content);
-
-    $('#book').resizable({
-        alsoResize: '#content',
-        stop: function() {
-            $('#content p').show();
-            process_content();
-
-        }
-    });
 
     $('html').mousewheel(function(event, delta) {
         if (delta > 0) // up

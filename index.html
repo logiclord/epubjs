@@ -3,30 +3,66 @@
   <head>
     <title>ePub js test</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/epubjs.css" ></link>
-    <link type="text/css" href="css/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
+    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="css/bootstrap-responsive.min.css" rel="stylesheet" />
     <script type="text/javascript">
       var epub_dir = 'emma-jane_austen';
 //      var epub_dir = 'fielding-tom_jones';
+//        var epub_dir = 'book-sample';
     </script>
-    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script>
-    <script type="text/javascript" src="js/mousewheel.js"></script>    
-    <script type="text/javascript" src="js/epubjs.js"></script>
 
   </head>
   <body>
-    <div id="book" class="clear">
-      <div id="toc-container"><ol id="toc"></ol></div>
-      <h1 id="content-title" ></h1>
-      <div id="total-size"><div id="remaining"></div></div>
-      <div id="content"></div>
+  
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+
+            <div class="nav-collapse">
+              <ul class="nav">
+                 <li class="dropdown">
+                    <a href="#"
+                          class="dropdown-toggle"
+                          data-toggle="dropdown">
+                          <i class="icon-book icon-white"></i>
+                          <b class="caret"></b>
+                    </a>
+                    <!-- TOC -->
+                    <div id="toc-container" class="dropdown-menu">
+                      <div class="well">
+                        <ul id="toc" class="nav nav-list"></ul>
+                      </div>
+                    </div>
+                    <!-- /TOC -->
+                  </li>
+                </ul>
+              </div>
+        </div>
+      </div>
     </div>
-    <div id="info">
-    <p>Usage: 'n' for next page, 'p' for previous page, 'j' for next chapter, 'k' for previous chapter</p>
-    <p>Current support: Firefox, Safari, IE 7. As of April 7, 2009.</p> 
-    <p>Resizable window, see lower-right corner. Mousewheel support to paginate forward and back.</p>
-    <p>Available from <a href="http://code.google.com/p/epub-tools/source/browse/#svn/trunk/epubtools/epubjs">Google Code</a></p> 
-    </div>
+
+
+    <div id="book" class="container-fluid">
+      <div class="row-fluid">
+        <!-- Page -->
+        <div id="page-container" class="span12">
+          <div><h1 id="content-title"></h1></div>
+          <div id="total-size"><div id="remaining"></div></div>
+          <div id="content"></div>
+        </div>
+        <!-- /Page -->
+
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script> 
+    <script type="text/javascript" src="js/mousewheel.js"></script> 
+    <script type="text/javascript" src="js/epubjs.js"></script>
+
   </body>
 </html>  
